@@ -99,11 +99,11 @@ uvicorn sparse_retrieval_cpu:app --host 0.0.0.0 --port "$PORT"
 
 ### Agent server (Qwen2.5 trained model 7b)
 
-In order to run the agent server, you can use the following script:
+First, you can download the trained agent from this [link](https://drive.google.com/file/d/18hW-oUt82691PXJ7mGSiyN_NShxLo0Yd/view?usp=sharing). Then, in order to run the agent server, you can use the following script:
 
 ```shell
 # agent address
-AGENT_ADDR="/*address to the agent checkpoint*/"
+AGENT_ADDR="/*address to the unzipped agent checkpoint*/"
 
 # port number
 PORT=$((5000 + RANDOM % 200))
