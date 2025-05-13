@@ -1,6 +1,6 @@
 # SIGIR25-LiveRAG-CIIR-ScaledRAG
 
-Our pipeline mainly consists of two components: the Retriever and Multi-agent inference, which includes multiple agents that facilitate the environment (i.e., the Falcon LLM) with the necessary supporting passages to generate responses that are relevant and faithful. Our Multi-agent inference setup includes the following agents: Coordinator, Generator (uses Falcon LLM), Planner, Reasoner, Searcher (uses Retriever), Summarizer, and Validator. The setup is iterative and is trained on an extensive 10K-question dataset across a variety of categories using DataMorgana.
+Our pipeline mainly consists of two components: the Retriever and Multi-agent inference, which includes multiple agents that facilitate the environment (i.e., the Falcon LLM) with the necessary supporting passages to generate responses that are relevant and faithful. Our Multi-agent inference setup includes the following agents: Coordinator, Generator (uses Falcon LLM), Planner, Reasoner, Searcher (uses Retriever), Summarizer, and Validator. The setup is iterative and is trained on an extensive 10K-question dataset across a variety of categories generated using DataMorgana.
 
 ## Retriever
 In order to setup our retriever server, follow the steps:
