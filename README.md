@@ -1,5 +1,7 @@
 # SIGIR25-LiveRAG-CIIR-ScaledRAG
 
+This repository contains our system submission to the [SIGIR’25 LiveRAG Challenge](https://liverag.tii.ae/), which focuses on building scalable, faithful, and responsive Retrieval-Augmented Generation (RAG) pipelines at web scale. The competition requires participants to design agent-based systems that operate over 15M+ long-context documents to answer open-domain questions grounded in real-world data.
+
 Our pipeline mainly consists of two components: the Retriever and Multi-agent inference, which includes multiple agents that facilitate the environment (i.e., the Falcon LLM) with the necessary supporting passages to generate responses that are relevant and faithful. Our Multi-agent inference setup includes the following agents: Coordinator, Generator (uses Falcon LLM), Planner, Reasoner, Searcher (uses Retriever), Summarizer, and Validator. The setup is iterative and is trained on an extensive 10K-question dataset across a variety of categories generated using DataMorgana.
 
 ## Retriever
@@ -15,7 +17,7 @@ retriever-setup/fine_web_chunking.py: Create document chunks of size 512 tokens 
 
 Indexing the FineWeb dataset:
 
-We follow prior methodologies from our group and utilize the "hzeng/Lion-SP-1B-llama3-marco-mntp," a 1-billion parameter sparse retrieval model, for indexing the Fineweb dataset. To index the dataset, you can use the following script:
+We follow prior methodologies from our group and utilize the "hzeng/Lion-SP-1B-llama3-marco-mntp," a 1-billion parameter sparse retrieval model introduced in [Scaling Sparse and Dense Retrieval in Decoder-Only LLMs](https://arxiv.org/abs/2502.15526) for indexing the Fineweb dataset. To index the dataset, you can use the following script:
 
 ```shell
 # Activate virtual environment
@@ -128,7 +130,6 @@ vllm serve "$AGENT_ADDR" --host 0.0.0.0 --port "$PORT" --download-dir "$DOWNLOAD
 
 In order to run the Falcon server for response generation, you can use the following script:
 
-
 ```shell
 # agent address
 AGENT_ADDR="tiiuae/Falcon3-10B-Instruct"
@@ -155,7 +156,6 @@ vllm serve "$AGENT_ADDR" --host 0.0.0.0 --port "$PORT" --download-dir "$DOWNLOAD
 ### Reward Model server (Only for training)
 
 In order to generate data for training the agent, we need access to a reward model for scoring different trajectories. To run this server, you can use the following script:
-
 
 ```shell
 # agent address
@@ -237,7 +237,7 @@ python inference-and-training/utils/train_test_seperate.py \
 
 ### Step 2: Experience generation
 
-the first step involves using the initial parameters of the agent to generate some experiences and score them using reward model. This step is happening using the following script:
+The first step involves using the initial parameters of the agent to generate some experiences and score them using reward model. This step is happening using the following script:
 
 ```shell
 source "/*address to the bin directory of the venv*/"
@@ -261,7 +261,7 @@ python inference-and-training/utils/extract_training_data_for_self_training.py \
     --output_addr "/*address to saving training data for agent*/"
 ```
 
-### Step 3: trainign the agent
+### Step 3: training the agent
 
 Finally, it is time to train the model (you need cuda 12.6):
 
@@ -283,7 +283,6 @@ python inference-and-training/train_unsloth.py \
 ```
 
 After this step, you need to rerun the agent server with the trained agent!
-
 
 ## Inference
 

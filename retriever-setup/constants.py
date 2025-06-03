@@ -7,4 +7,4 @@ corpus_datasource = {
     "/*path to chunked fineweb dataset*/":"fineweb"
 }
 
-supported_models = ["t5", "llama", "bert"]
+supported_models = ["llama"]

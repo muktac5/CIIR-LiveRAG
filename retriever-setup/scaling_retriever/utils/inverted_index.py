@@ -11,7 +11,6 @@ import numpy as np
 from tqdm.auto import tqdm
 import ujson
 
-
 class IndexDictOfArray:
     def __init__(self, index_path=None, force_new=False, filename="array_index.h5py", dim_voc=None):
         if index_path is not None:

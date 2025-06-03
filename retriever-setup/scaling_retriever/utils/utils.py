@@ -1,12 +1,9 @@
 import os 
-import itertools 
 import random
 
 import ujson 
 import torch.distributed
 import torch
-
-
 random.seed(1234)
 
 def has_answer(text, answers):
