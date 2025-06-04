@@ -1,4 +1,4 @@
-# SIGIR25-LiveRAG-CIIR-ScaledRAG
+# CIIR-LiveRAG
 
 This repository contains our system submission to the [SIGIR’25 LiveRAG Challenge](https://liverag.tii.ae/), which focuses on building scalable, faithful, and responsive Retrieval-Augmented Generation (RAG) pipelines at web scale. The competition requires participants to design agent-based systems that operate over 15M+ long-context documents to answer open-domain questions grounded in real-world data.
 
