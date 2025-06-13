@@ -1,6 +1,6 @@
 # CIIR-LiveRAG
 
-This repository contains our system submission to the [SIGIR’25 LiveRAG Challenge](https://liverag.tii.ae/), which focuses on building scalable Retrieval-Augmented Generation (RAG) pipelines at web scale. The competition requires participants to design RAG systems that operate over 15M+ long-context documents to answer open-domain questions grounded in real-world data.
+This repository contains our system submission to the [SIGIR’25 LiveRAG Challenge](https://liverag.tii.ae/), which focuses on building scalable Retrieval-Augmented Generation (RAG) pipelines at web scale. The competition requires participants to design RAG systems that operate over 15M+ long-context documents to answer open-domain questions grounded in real-world data. For a more detailed description and case studies, please refer to our paper: [CIIR@LiveRAG 2025: Optimizing Multi-Agent Retrieval Augmented Generation through Self-Training](https://arxiv.org/abs/2506.10844)
 
 Our pipeline mainly consists of two components: the Retriever and Multi-agent inference, which includes multiple agents that facilitate the environment (i.e., the Falcon LLM) with the necessary supporting passages to generate responses that are relevant and faithful. Our Multi-agent inference setup includes the following agents: Coordinator, Generator (uses Falcon LLM), Planner, Reasoner, Searcher (uses Retriever), Summarizer, and Validator. The setup is iterative and is trained on an extensive 10K-question dataset across a variety of categories generated using DataMorgana.
 
